@@ -1,33 +1,50 @@
 package com.github.bun133.trainsigs.graphics
 
 import java.awt.Color
+import java.awt.Graphics
+import java.awt.Image
 import javax.swing.JFrame
 
-class AWTGraphic(w: Int, h: Int) : Graphic {
-    val window = JFrame().also {
-        it.setSize(w, h)
-        it.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
-        it.isVisible = true
-        it.isResizable = true
-        it.setLocationRelativeTo(null)
-        it.title = "Train Signs"
+class AWTGraphic : Graphic {
+    val g: Graphics
+    val frame: JFrame?
+
+    constructor(g: Graphics, w: Int, h: Int) {
+        this.g = g
+        this.frame = null
+
+        width = w
+        height = h
     }
 
-    override var width: Int = w
-        get() = window.width
-        set(value) {
-            field = value
-            window.setSize(value, height)
+    constructor(w: Int, h: Int) {
+        frame = JFrame().also {
+            it.setSize(w, h)
+            it.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
+            it.isVisible = true
+            it.isResizable = true
+            it.setLocationRelativeTo(null)
+            it.title = "Train Signs"
         }
+        g = frame.graphics
 
-    override var height: Int = h
-        get() = window.height
+        width = w
+        height = h
+    }
+
+    override var width: Int
         set(value) {
+            frame?.setSize(value, height)
             field = value
-            window.setSize(width, value)
         }
+        get() = frame?.width ?: field
 
-    val g = window.graphics
+    override var height: Int
+        set(value) {
+            frame?.setSize(width, value)
+            field = value
+        }
+        get() = frame?.height ?: field
 
     override fun color(c: Color) {
         g.color = c
@@ -47,5 +64,14 @@ class AWTGraphic(w: Int, h: Int) : Graphic {
 
     override fun drawString(x: Int, y: Int, text: String) {
         g.drawString(text, x, y)
+    }
+
+    override fun drawImage(x: Int, y: Int, image: Image) {
+        g.drawImage(image, x, y, null)
+    }
+
+    override fun clear(color: Color) {
+        g.color = color
+        g.clearRect(0, 0, width, height)
     }
 }

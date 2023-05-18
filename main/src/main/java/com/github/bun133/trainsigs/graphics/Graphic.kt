@@ -1,6 +1,7 @@
 package com.github.bun133.trainsigs.graphics
 
 import java.awt.Color
+import java.awt.Image
 
 /**
  * this is the interface of handler of graphic
@@ -16,8 +17,14 @@ interface Graphic {
     fun drawRect(x: Int, y: Int, width: Int, height: Int)
     fun fillRect(x: Int, y: Int, width: Int, height: Int)
     fun drawString(x: Int, y: Int, text: String)
-    fun clear(color: Color = Color.WHITE) {
-        color(color)
-        drawRect(0, 0, width, height)
-    }
+
+    fun drawImage(x: Int, y: Int, image: Image)
+    fun clear(color: Color = Color.WHITE)
+}
+
+fun Graphic.drawFrame(f: (g: Graphic) -> Unit) {
+    // clear
+    clear()
+    // draw
+    f(this)
 }

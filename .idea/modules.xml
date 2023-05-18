@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.github.bun133.trainsigs.iml" filepath="$PROJECT_DIR$/.idea/modules/com.github.bun133.trainsigs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.github.bun133.trainsigs.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.github.bun133.trainsigs.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.github.bun133.trainsigs.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.github.bun133.trainsigs.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/trainsigs.iml" filepath="$PROJECT_DIR$/.idea/trainsigs.iml" />
+    </modules>
+  </component>
+</project>
