@@ -71,7 +71,8 @@ class AWTGraphic : Graphic {
     }
 
     override fun clear(color: Color) {
-        g.color = color
         g.clearRect(0, 0, width, height)
+        g.color = color
+        g.fillRect(0, 0, width, height)
     }
 }

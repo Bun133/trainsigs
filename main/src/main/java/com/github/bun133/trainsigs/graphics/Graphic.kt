@@ -22,9 +22,9 @@ interface Graphic {
     fun clear(color: Color = Color.WHITE)
 }
 
-fun Graphic.drawFrame(f: (g: Graphic) -> Unit) {
+fun Graphic.drawFrame(f: (g: Graphic) -> Unit, color: Color = Color.WHITE) {
     // clear
-    clear()
+    clear(color)
     // draw
     f(this)
 }
